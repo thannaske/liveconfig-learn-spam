@@ -1,0 +1,17 @@
+#!/bin/bash
+JUNK_FOLDERS=$(find /var/mail -type d -name '.Junk')
+SPAM_FOLDERS=$(find /var/mail -type d -name '.Spam')
+
+for JUNK in $JUNK_FOLDERS
+do
+	/usr/bin/sa-learn --spam $JUNK
+done
+
+for SPAM in $SPAM_FOLDERS
+do
+	/usr/bin/sa-learn --spam $SPAM
+done
+
+/usr/bin/sa-learn --sync
+echo "Finished daily auto-learning of SpamAssassin."
+
