@@ -1,5 +1,5 @@
 #!/bin/bash
-JUNK_FOLDERS=$(find /var/mail -type d -name '.Junk')
+JUNK_FOLDERS=$(find /var/mail -type d -name '.Junk*')
 SPAM_FOLDERS=$(find /var/mail -type d -name '.Spam')
 
 for JUNK in $JUNK_FOLDERS
